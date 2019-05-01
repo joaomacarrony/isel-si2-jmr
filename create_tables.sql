@@ -20,8 +20,7 @@ create table Armazem(
 );
 
 create table Produto(
-	pid int identity(1,1) primary key,
-	codigo int unique,
+	codigo int primary key,
 	tipo varchar(20) check(tipo = 'Alimentar' or tipo = 'Higiene Pessoal' or tipo = 'Casa'),
 	descricao varchar(100),
 	quantidade int,
@@ -31,56 +30,56 @@ create table Produto(
 );
 
 create table FornecedoresProdutos(
-	pid int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	foid int foreign key references Fornecedor(foid),
-	constraint PK_Key primary key (pid,foid)
+	constraint PK_Key primary key (codigo_produto,foid)
 );
 
 create table PedidosFranqueados(
 	pfid int identity (1,1) primary key,
 	fid int foreign key references Franqueado(fid),
-	pid int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	quantidade int
 );
 
 create table PedidosProdutos(
 	ppid int identity(1,1) primary key,
-	pid int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	foid int foreign key references Fornecedor(foid),
 	quantidade int
 );
 
 create table Stock(
-	stid int identity(1,1) primary key,
-	produto int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	preco float,
 	quantidade int,
 	quantidade_minima int,
 	quantidade_maxima int,
-	fid int foreign key references Franqueado(fid)
+	fid int foreign key references Franqueado(fid),
+	primary key(codigo_produto,fid)
 );
 
 create table EntregasFranqueados(
 	efid int identity(1,1) primary key,
 	fid int foreign key references Franqueado(fid),
-	pid int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	quantidade int
 );
 
 create table Vendas(
 	vid int identity(1,1) primary key,
 	fid int foreign key references Franqueado(fid),
-	pid int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	data_venda date default getdate(),
 	preco_venda float
 );
 
 create table HistoricoVendas(
-	hvid int identity(1,1) primary key,
 	fid int foreign key references Franqueado(fid),
-	pid int foreign key references Produto(pid),
+	codigo_produto int foreign key references Produto(codigo),
 	valor_ano_corrente float,
-	valor_3_anos float
+	valor_3_anos float,
+	primary key (fid,codigo_produto)
 );
 
 
