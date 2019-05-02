@@ -25,8 +25,9 @@ BEGIN TRY
 		insert into PedidosFranqueados values (2,3,10)
 		insert into PedidosFranqueados values (2,2,3)
 	   
-	   insert into PedidosProdutos values (1,1,20)
-	   insert into PedidosProdutos values (2,2,10)
+	   insert into PedidosProdutos values (1,1,10)
+	   insert into PedidosProdutos values (1,2,2)
+	   insert into PedidosProdutos values (2,2,3)
 	   
 	   insert into Stock values (1,2.20,10,5,100,1)
 	   insert into Stock values (2,3.00,5,5,20,1)

@@ -32,3 +32,19 @@ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'HistoricoVendas')
 
  IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Franqueado')
  DROP TRIGGER Franqueado
+
+ -----------------------------------------------------------------------------------------------
+
+ DROP TABLE HistoricoVendas
+ DROP TABLE Vendas
+ DROP TABLE EntregasFranqueados
+ DROP TABLE Stock
+ DROP TABLE PedidosProdutos
+ DROP TABLE PedidosFranqueados
+ DROP TABLE FornecedoresProdutos
+ DROP TABLE Produto
+ DROP TABLE Armazem
+ DROP TABLE Fornecedor
+ DROP TABLE Franqueado
+
+ 
