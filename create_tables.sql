@@ -45,7 +45,7 @@ create table PedidosFranqueados(
 create table PedidosProdutos(
 	ppid int identity(1,1) primary key,
 	codigo_produto int foreign key references Produto(codigo),
-	foid int foreign key references Fornecedor(foid),
+	fid int foreign key references Franqueado(fid),
 	quantidade int
 );
 

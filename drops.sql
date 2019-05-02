@@ -1,13 +1,34 @@
 use si2
 
-drop table HistoricoVendas;
-drop table Vendas;
-drop table EntregasFranqueados;
-drop table Stock;
-drop table PedidosProdutos;
-drop table PedidosFranqueados;
-drop table FornecedoresProdutos;
-drop table Produto;
-drop table Armazem;
-drop table Fornecedor;
-drop table Franqueado;
+IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'HistoricoVendas')
+ DROP TRIGGER HistoricoVendas
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Vendas')
+ DROP TRIGGER Vendas
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'EntregasFranqueados')
+ DROP TRIGGER EntregasFranqueados
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Stock')
+ DROP TRIGGER Stock
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'PedidosProdutos')
+ DROP TRIGGER PedidosProdutos
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'PedidosFranqueados')
+ DROP TRIGGER PedidosFranqueados
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'FornecedoresProdutos')
+ DROP TRIGGER FornecedoresProdutos
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Produto')
+ DROP TRIGGER Produto
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Armazem')
+ DROP TRIGGER Armazem
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Fornecedor')
+ DROP TRIGGER Fornecedor
+
+ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'Franqueado')
+ DROP TRIGGER Franqueado
