@@ -1,5 +1,5 @@
 use si2
-
+select * from PedidosFranqueados;
 select * from Franqueado;
 select * from Fornecedor;
 select * from Armazem;
