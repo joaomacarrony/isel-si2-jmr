@@ -66,12 +66,23 @@ create table EntregasFranqueados(
 	quantidade int
 );
 
+create table Consumidor(
+	tid int identity(1,1) unique, 
+	cid int unique,
+	nome varchar(100),
+	data_transacao date,
+	primary key(cid,tid)
+);
+
 create table Vendas(
-	vid int identity(1,1) primary key,
+	vid int identity(1,1),
 	fid int foreign key references Franqueado(fid),
+	cid int foreign key references Consumidor(cid),
+	tid int foreign key references Consumidor(tid),
 	codigo_produto int foreign key references Produto(codigo),
 	data_venda date default getdate(),
-	preco_venda float
+	preco_venda float,
+	primary key(vid,cid,tid,fid)
 );
 
 create table HistoricoVendas(
@@ -81,6 +92,8 @@ create table HistoricoVendas(
 	valor_3_anos float,
 	primary key (fid,codigo_produto)
 );
+
+
 
 
 
