@@ -1,4 +1,4 @@
-use si2
+use SI2
 
 select * from PedidosFranqueados;
 select * from Franqueado;

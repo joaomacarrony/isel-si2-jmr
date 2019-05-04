@@ -1,4 +1,4 @@
-use si2
+use SI2
 
 BEGIN TRY
     BEGIN TRANSACTION 
@@ -25,9 +25,13 @@ BEGIN TRY
 		insert into PedidosFranqueados values (2,3,10)
 		insert into PedidosFranqueados values (2,2,3)
 	   
-	   insert into PedidosProdutos values (1,1,10, getdate())
-	   insert into PedidosProdutos values (1,2,2, getdate())
-	   insert into PedidosProdutos values (2,2,3, getdate())
+	   insert into PedidosProdutos values (1,1,10,'31-12-2019')
+	   insert into PedidosProdutos values (1,2,2, '31-12-2019')
+	   insert into PedidosProdutos values (2,2,3, '31-12-2019')
+
+	   insert into RespostaPedido values (1,5,10)
+	   insert into RespostaPedido values (2,10.6,2)
+	   insert into RespostaPedido values (3,4.2,3)
 	   
 	   insert into Stock values (1,2.20,10,5,100,1)
 	   insert into Stock values (2,3.00,5,5,20,1)
@@ -43,13 +47,13 @@ BEGIN TRY
 	   insert into Consumidor (cid,nome) values (2,'Consumidor 2')
 	   insert into Consumidor (cid,nome) values (3,'Consumidor 3')
 
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (1,1,1,1,2.2)
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (1,1,1,1,2.2)
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (1,1,1,1,2.2)
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (1,2,2,2,2.3)
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (2,2,2,3,1.5)
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (2,3,3,3,1.5)
-	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (2,3,3,4,1)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (1,1,1,1,2.2,10)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (1,1,1,1,2.2,9)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (1,1,1,1,2.2,8)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (1,2,2,2,3,7)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (2,2,2,3,1.5,6)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (2,3,3,3,1.5,5)
+	   insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (2,3,3,4,1,5)
 
 	   insert into HistoricoVendas values (1,1,20,30)
 	   insert into HistoricoVendas values (2,3,10,20)
@@ -59,7 +63,7 @@ BEGIN TRY
 	END TRY
 
 	BEGIN CATCH
-
+		print error_message();
 		ROLLBACK
 
 	END CATCH

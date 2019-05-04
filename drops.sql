@@ -34,12 +34,13 @@ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'HistoricoVendas')
  DROP TRIGGER Franqueado
 
  -----------------------------------------------------------------------------------------------
- use si2
+ use SI2
  DROP TABLE HistoricoVendas
  DROP TABLE Vendas
- --DROP TABLE Consumidor
+ DROP TABLE Consumidor
  DROP TABLE EntregasFranqueados
  DROP TABLE Stock
+ DROP TABLE RespostaPedido
  DROP TABLE PedidosProdutos
  DROP TABLE PedidosFranqueados
  DROP TABLE FornecedoresProdutos
@@ -47,5 +48,6 @@ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'HistoricoVendas')
  DROP TABLE Armazem
  DROP TABLE Fornecedor
  DROP TABLE Franqueado
+
 
  

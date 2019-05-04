@@ -50,7 +50,6 @@ create table PedidosProdutos(
 	data date
 );
 
-
 create table RespostaPedido(
 	rid int identity(1,1),
 	ppid int foreign key references PedidosProdutos(ppid),
@@ -92,6 +91,7 @@ create table Vendas(
 	codigo_produto int foreign key references Produto(codigo),
 	data_venda date default getdate(),
 	preco_venda float,
+	quantidade int,
 	primary key(vid,cid,tid,fid)
 );
 
