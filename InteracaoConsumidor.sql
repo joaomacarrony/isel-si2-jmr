@@ -10,7 +10,7 @@ create procedure InsertConsumidor
 
 as
 	begin
-		insert into Consumidor (@cid,@nome) values (30,'Consumidor Teste');
+		insert into Consumidor (cid,nome) values (@cid,@nome);
 	end
 go
 
@@ -30,7 +30,7 @@ as
 	begin
 		-- Verifica se a quantidade em Stock é superior a 0 - CHECKED
 		-- Se sim efectua a venda, caso não efectue lança uma mensagem de erro - CHECKED
-		insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (@fid,@cid,@tid,@codigo_produto,@preco_venda,@quantidade);
+		insert into Vendas (fid,cid,tid,codigo_produto,preco_venda,quantidade) values (@fid,@cid,@tid,@codigo_produto,@preco_venda,@quantidade);
 		-- Decresce o valor do stock para um dado produto de um franqueado (Trigger em Vendas) - CHECKED
 	end
 go
@@ -44,20 +44,47 @@ create procedure CloseVenda
 	@cid int,
 	@tid int
 as
-	begin
-		select cid, codigo_produto, data_venda, Sum(preco_venda) as Total
+	Declare @total float; 
+	Declare @total_parcial float; 
+	Declare @preco_venda float; 
+	Declare @quantidade int;
+	Declare @descricao varchar(100);
+	Declare @count int;
+	Declare pointer cursor for 
+		select Vendas.preco_venda, Vendas.quantidade, Produto.descricao
 			from Vendas
-			where (tid = @tid and cid = @cid)
-			group by cid, codigo_produto, data_venda;
+			join Produto
+			on (Vendas.codigo_produto = Produto.codigo)
+			where cid = @cid and tid = @tid;
+
+	begin
+		open pointer;
+		set @total = 0;
+		set @count = 0;
+		while 1 = 1
+		begin
+			fetch next from pointer into @preco_venda, @quantidade, @descricao
+
+			if @@fetch_status <> 0
+			begin
+				break
+			end
+			set @total_parcial = @preco_venda * @quantidade;
+			set @total = @total + @total_parcial;
+			print @descricao + ' : ' + cast(@total_parcial as varchar) + '€'; 
+			set @count = @count +1;
+		end
+		close pointer
+		deallocate pointer;
+		print 'Total: ' + cast(@total as varchar);
 	end
 go
 
 use si2
 
-		select cid, codigo_produto, data_venda, Sum(preco_venda) as Total
-			from Vendas
-			where (tid = 1 and cid = 1)
-			group by cid, codigo_produto, data_venda;
+drop procedure CloseVenda;
 
-			select  * from Vendas
+exec CloseVenda 2, 2
 
+select * from Vendas
+select * from Produto

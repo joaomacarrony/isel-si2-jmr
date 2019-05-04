@@ -49,6 +49,7 @@ create table RespostaPedido(
 	ppid int foreign key references PedidosProdutos(ppid),
 	preco float,
 	quantidade int,
+	resposta bit,
 	primary key (ppid, rid)
 );
 

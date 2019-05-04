@@ -27,9 +27,9 @@ BEGIN TRY
 	   insert into PedidosProdutos values (1,2,2, '2019-12-31')
 	   insert into PedidosProdutos values (2,2,3, '2019-12-31')
 
-	   insert into RespostaPedido values (1,5,10)
-	   insert into RespostaPedido values (2,10.6,2)
-	   insert into RespostaPedido values (3,4.2,3)
+	   insert into RespostaPedido (ppid,preco,quantidade) values (1,5,10)
+	   insert into RespostaPedido (ppid,preco,quantidade) values (2,10.6,2)
+	   insert into RespostaPedido (ppid,preco,quantidade) values (3,4.2,3)
 	   
 	   insert into Stock values (1,2.20,10,5,100,1)
 	   insert into Stock values (2,3.00,5,5,20,1)
