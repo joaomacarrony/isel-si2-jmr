@@ -52,10 +52,11 @@ create table PedidosProdutos(
 
 
 create table RespostaPedido(
-	rid int foreign key references PedidosProdutos(ppid),
+	rid int identity(1,1),
+	ppid int foreign key references PedidosProdutos(ppid),
 	preco float,
 	quantidade int,
-	primary key (rid)
+	primary key (ppid, rid)
 );
 
 create table Stock(
