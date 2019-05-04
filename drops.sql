@@ -45,9 +45,9 @@ IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'HistoricoVendas')
  DROP TABLE PedidosFranqueados
  DROP TABLE FornecedoresProdutos
  DROP TABLE Produto
- DROP TABLE Armazem
  DROP TABLE Fornecedor
  DROP TABLE Franqueado
+
 
 
  

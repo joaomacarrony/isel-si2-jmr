@@ -1,6 +1,5 @@
 use SI2
 
-
 create table Franqueado(
 	fid int identity(1,1) primary key,
 	nif int unique,
@@ -14,10 +13,6 @@ create table Fornecedor(
 	nome varchar(40) not null
 );
 
-create table Armazem(
-	aid int identity(1,1) primary key,
-	nome varchar(40)
-);
 
 create table Produto(
 	codigo int primary key,
@@ -25,8 +20,7 @@ create table Produto(
 	descricao varchar(100),
 	quantidade int,
 	quantidade_minima int,
-	quantidade_maxima int,
-	armazem int foreign key references Armazem(aid)
+	quantidade_maxima int
 );
 
 create table FornecedoresProdutos(

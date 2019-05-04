@@ -24,13 +24,14 @@ create procedure InsertVenda
 	@cid int,
 	@tid int,
 	@codigo_produto int,
-	@preco_venda float
+	@preco_venda float,
+	@quantidade int
 as
 	begin
-		-- Verifica se a quantidade em Stock é superior a 0
-		-- Se sim efectua a venda, caso não efectue lança uma mensagem de erro
-		insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (@fid,@cid,@tid,@codigo_produto,@preco_venda);
-		-- Decresce o valor do stock para um dado produto de um franqueado (Trigger em Vendas)
+		-- Verifica se a quantidade em Stock é superior a 0 - CHECKED
+		-- Se sim efectua a venda, caso não efectue lança uma mensagem de erro - CHECKED
+		insert into Vendas (fid,cid,tid,codigo_produto,preco_venda) values (@fid,@cid,@tid,@codigo_produto,@preco_venda,@quantidade);
+		-- Decresce o valor do stock para um dado produto de um franqueado (Trigger em Vendas) - CHECKED
 	end
 go
 
@@ -38,8 +39,6 @@ go
 /* Finalizar a conta do cliente, com cálculo do valor a pagar e emissão de recibo com lista de compras. */
 
 -- Calcular o valor total da compra do cliente e imprimir os produtos e o seu respectivo valor
-
--- NAO DEIXAR VENDER CASO NAO HAJA STOCK E REDUZ A QUANTIDADE NO STOCK
 
 create procedure CloseVenda 
 	@cid int,
@@ -52,3 +51,13 @@ as
 			group by cid, codigo_produto, data_venda;
 	end
 go
+
+use si2
+
+		select cid, codigo_produto, data_venda, Sum(preco_venda) as Total
+			from Vendas
+			where (tid = 1 and cid = 1)
+			group by cid, codigo_produto, data_venda;
+
+			select  * from Vendas
+

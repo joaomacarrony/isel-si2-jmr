@@ -8,13 +8,11 @@ BEGIN TRY
 
 		insert into Fornecedor values (100100100,'Fornecedor1')
 		insert into Fornecedor values (200200200,'Fornecedor2')
-			   
-		insert into Armazem values ('Armazém A')
 
-		insert into Produto values (1,'Alimentar','Arroz Integral',50,20,200,1)
-		insert into Produto values (2,'Alimentar','Cereais',10,0,100,1)
-		insert into Produto values (3,'Casa','Pano para pó',120,100,500,1)
-		insert into Produto values (4,'Higiene Pessoal','Cotonetes',73,20,300,1)
+		insert into Produto values (1,'Alimentar','Arroz Integral',50,20,200)
+		insert into Produto values (2,'Alimentar','Cereais',10,0,100)
+		insert into Produto values (3,'Casa','Pano para pó',120,100,500)
+		insert into Produto values (4,'Higiene Pessoal','Cotonetes',73,20,300)
 
 		insert into FornecedoresProdutos values (1,1);
 		insert into FornecedoresProdutos values (1,2);
@@ -25,9 +23,9 @@ BEGIN TRY
 		insert into PedidosFranqueados values (2,3,10)
 		insert into PedidosFranqueados values (2,2,3)
 	   
-	   insert into PedidosProdutos values (1,1,10,'31-12-2019')
-	   insert into PedidosProdutos values (1,2,2, '31-12-2019')
-	   insert into PedidosProdutos values (2,2,3, '31-12-2019')
+	   insert into PedidosProdutos values (1,1,10,'2019-12-31')
+	   insert into PedidosProdutos values (1,2,2, '2019-12-31')
+	   insert into PedidosProdutos values (2,2,3, '2019-12-31')
 
 	   insert into RespostaPedido values (1,5,10)
 	   insert into RespostaPedido values (2,10.6,2)
