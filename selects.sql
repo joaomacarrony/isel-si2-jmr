@@ -7,6 +7,7 @@ select * from Produto;
 select * from FornecedoresProdutos;
 select * from PedidosFranqueados;
 select * from PedidosProdutos;
+select * from RespostaPedido;
 select * from Stock;
 select * from EntregasFranqueados;
 select * from Vendas;

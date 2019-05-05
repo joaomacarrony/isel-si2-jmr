@@ -23,9 +23,10 @@ BEGIN TRY
 		insert into PedidosFranqueados values (2,3,10)
 		insert into PedidosFranqueados values (2,2,3)
 	   
-	   insert into PedidosProdutos values (1,1,10,'2019-12-31')
-	   insert into PedidosProdutos values (1,2,2, '2019-12-31')
-	   insert into PedidosProdutos values (2,2,3, '2019-12-31')
+	   insert into PedidosProdutos values (1,10,'2019-12-31')
+	   insert into PedidosProdutos values (1,2, '2019-12-31')
+	   insert into PedidosProdutos values (2,3, '2019-12-31')
+	   insert into PedidosProdutos values (3,3, '2019-12-31')
 
 	   insert into RespostaPedido (ppid,preco,quantidade) values (1,5,10)
 	   insert into RespostaPedido (ppid,preco,quantidade) values (2,10.6,2)
@@ -37,9 +38,9 @@ BEGIN TRY
 	   insert into Stock values (3,1.75,11,10,50,2)
 	   insert into Stock values (4,1.00,2,0,10,2)
 
-	   insert into EntregasFranqueados values (1,1,10)
-	   insert into EntregasFranqueados values (1,2,34)
-	   insert into EntregasFranqueados values (2,2,6)
+	   insert into EntregasFranqueados values (1,1,10,getdate())
+	   insert into EntregasFranqueados values (1,2,34,getdate())
+	   insert into EntregasFranqueados values (2,2,6,getdate())
 
 	   insert into Consumidor (cid,nome) values (1,'Consumidor 1')
 	   insert into Consumidor (cid,nome) values (2,'Consumidor 2')

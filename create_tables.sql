@@ -39,7 +39,6 @@ create table PedidosFranqueados(
 create table PedidosProdutos(
 	ppid int identity(1,1) primary key,
 	codigo_produto int foreign key references Produto(codigo),
-	fid int foreign key references Franqueado(fid),
 	quantidade int,
 	data date
 );
@@ -67,7 +66,8 @@ create table EntregasFranqueados(
 	efid int identity(1,1) primary key,
 	fid int foreign key references Franqueado(fid),
 	codigo_produto int foreign key references Produto(codigo),
-	quantidade int
+	quantidade int,
+	data date
 );
 
 create table Consumidor(
