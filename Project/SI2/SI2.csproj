@@ -65,6 +65,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\FranqueadoUtils.cs" />
+    <Compile Include="Functions\ProcessoFornecedor.cs" />
     <Compile Include="Functions\ProcessoVenda.cs" />
     <Compile Include="Functions\ProdutoUtils.cs" />
     <Compile Include="Functions\StockUtils.cs" />
