@@ -19,8 +19,7 @@ namespace SI2.Functions
                     descricao = descricao,
                     quantidade = quant,
                     quantidade_minima = quantMinima,
-                    quantidade_maxima = quantMaxima,
-                    armazem = armazem
+                    quantidade_maxima = quantMaxima
                 });
 
                 ctx.SaveChanges();
@@ -31,14 +30,13 @@ namespace SI2.Functions
         {
             using (var ctx = new SI2Entities())
             {
-                Produto produto = ctx.produto.Find(pid);
+                Produto produto = ctx.Produtos.Find(pid);
                     produto.codigo = codigo;
                     produto.tipo = tipo;
                     produto.descricao = descricao;
                     produto.quantidade = quant;
                     produto.quantidade_minima = quantMinima;
                     produto.quantidade_maxima = quantMaxima;
-                    produto.armazem = armazem;
                 ctx.SaveChanges();
             }
         }
@@ -47,7 +45,7 @@ namespace SI2.Functions
         {
             using (var ctx = new SI2Entities())
             {
-                var stock = ctx.Stock
+                var stock = ctx.Stocks
                     .Where(s => s.codigo_produto == pid)
                     .FirstOrDefault<Stock>();
                 if (stock != null){
@@ -73,23 +71,23 @@ namespace SI2.Functions
         {
             using (var ctx = new SI2Entities())
             {
-                // Produto produto =                       ctx.Produtos.Find(codigoProduto);
-                // HistoricoVenda historicoVendas =        ctx.HistoricoVendas.Find(codigoProduto);
-                // Venda venda =                           ctx.Vendas.Find(codigoProduto);
-                // EntregasFranqueado entregaFranqueado =  ctx.EntregasFranqueados.Find(codigoProduto);
-                // PedidosProduto pedidoProduto =          ctx.PedidosProdutos.Find(codigoProduto);
-                // PedidosFranqueado pedidoFranqueado =    ctx.PedidosFranqueados.Find(codigoProduto);
-                // FornecedoresProduto fornecedorProduto = ctx.FornecedoresProdutos.Find(codigoProduto);
-                // Stock stock =                           ctx.Stock.Find(codigoProduto)               ;
+                Produto produto = ctx.Produtos.Find(codigoProduto);
+                HistoricoVenda historicoVenda = ctx.HistoricoVendas.Find(codigoProduto);
+                Venda venda = ctx.Vendas.Find(codigoProduto);
+                EntregasFranqueado entregaFranqueado = ctx.EntregasFranqueados.Find(codigoProduto);
+                PedidosProduto pedidoProduto = ctx.PedidosProdutos.Find(codigoProduto);
+                PedidosFranqueado pedidoFranqueado = ctx.PedidosFranqueados.Find(codigoProduto);
+                Fornecedor fornecedor = ctx.Fornecedores.Find(codigoProduto);
+                Stock stock = ctx.Stocks.Find(codigoProduto);
 
-                ctx.Produtos.Remove(codigoProduto);
-                ctx.HistoricoVendas.Remove(codigoProduto);
-                ctx.Vendas.Remove(codigoProduto);
-                ctx.EntregasFranqueados.Remove(codigoProduto);
-                ctx.PedidosProdutos.Remove(codigoProduto);
-                ctx.PedidosFranqueados.Remove(codigoProduto);
-                ctx.FornecedoresProdutos.Remove(codigoProduto);
-                ctx.Stock.Remove(codigoProduto);
+                ctx.Produtos.Remove(produto);
+                ctx.HistoricoVendas.Remove(historicoVenda);
+                ctx.Vendas.Remove(venda);
+                ctx.EntregasFranqueados.Remove(entregaFranqueado);
+                ctx.PedidosProdutos.Remove(pedidoProduto);
+                ctx.PedidosFranqueados.Remove(pedidoFranqueado);
+                ctx.Fornecedores.Remove(fornecedor);
+                ctx.Stocks.Remove(stock);
 
                 ctx.SaveChanges();
             }

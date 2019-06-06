@@ -530,7 +530,7 @@ warning 6035: The relationship 'FK__Vendas__tid__35FCF52C' has columns that are 
           <Property Name="quantidade" Type="Int32" />
           <Property Name="data" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Produto" Relationship="Self.FK__PedidosPr__codig__22EA20B8" FromRole="PedidosProdutos" ToRole="Produto" />
-          <NavigationProperty Name="RespostaPedidoes" Relationship="Self.FK__RespostaPe__ppid__25C68D63" FromRole="PedidosProdutos" ToRole="RespostaPedido" />
+          <NavigationProperty Name="RespostaPedidos" Relationship="Self.FK__RespostaPe__ppid__25C68D63" FromRole="PedidosProdutos" ToRole="RespostaPedido" />
         </EntityType>
         <EntityType Name="Produto">
           <Key>
@@ -751,7 +751,7 @@ warning 6035: The relationship 'FK__Vendas__tid__35FCF52C' has columns that are 
           <EntitySet Name="PedidosFranqueados" EntityType="Self.PedidosFranqueado" />
           <EntitySet Name="PedidosProdutos" EntityType="Self.PedidosProduto" />
           <EntitySet Name="Produtoes" EntityType="Self.Produto" />
-          <EntitySet Name="RespostaPedidoes" EntityType="Self.RespostaPedido" />
+          <EntitySet Name="RespostaPedidos" EntityType="Self.RespostaPedido" />
           <EntitySet Name="Stocks" EntityType="Self.Stock" />
           <EntitySet Name="Vendas" EntityType="Self.Venda" />
           <AssociationSet Name="FK__EntregasF__codig__2D67AF2B" Association="Self.FK__EntregasF__codig__2D67AF2B">
@@ -792,7 +792,7 @@ warning 6035: The relationship 'FK__Vendas__tid__35FCF52C' has columns that are 
           </AssociationSet>
           <AssociationSet Name="FK__RespostaPe__ppid__25C68D63" Association="Self.FK__RespostaPe__ppid__25C68D63">
             <End Role="PedidosProdutos" EntitySet="PedidosProdutos" />
-            <End Role="RespostaPedido" EntitySet="RespostaPedidoes" />
+            <End Role="RespostaPedido" EntitySet="RespostaPedidos" />
           </AssociationSet>
           <AssociationSet Name="FK__Stock__codigo_pr__28A2FA0E" Association="Self.FK__Stock__codigo_pr__28A2FA0E">
             <End Role="Produto" EntitySet="Produtoes" />
@@ -982,7 +982,7 @@ warning 6035: The relationship 'FK__Vendas__tid__35FCF52C' has columns that are 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RespostaPedidoes">
+          <EntitySetMapping Name="RespostaPedidos">
             <EntityTypeMapping TypeName="SI2Model.RespostaPedido">
               <MappingFragment StoreEntitySet="RespostaPedido">
                 <ScalarProperty Name="rid" ColumnName="rid" />

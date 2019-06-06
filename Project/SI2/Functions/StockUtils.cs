@@ -12,9 +12,9 @@ namespace SI2.Functions
         {
             using (var ctx = new SI2Entities())
             {
-                ctx.Stock.Add(new Stock()
+                ctx.Stocks.Add(new Stock()
                 {
-                    produto = produto,
+                    codigo_produto = produto,
                     preco = preco,
                     quantidade = quant,
                     quantidade_minima = quantMinima,

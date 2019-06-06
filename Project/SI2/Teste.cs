@@ -35,6 +35,9 @@ namespace SI2
 
                 FranqueadoUtils.Remove(franq.fid);
 
+                ProcessoVenda proc = new ProcessoVenda(10, "João Dias");
+                proc.FecharVenda(1, 1);
+
 
             }
         }

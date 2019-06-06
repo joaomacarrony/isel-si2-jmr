@@ -17,7 +17,7 @@ namespace SI2
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PedidosProduto()
         {
-            this.RespostaPedidoes = new HashSet<RespostaPedido>();
+            this.RespostaPedidos = new HashSet<RespostaPedido>();
         }
     
         public int ppid { get; set; }
@@ -27,6 +27,6 @@ namespace SI2
     
         public virtual Produto Produto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RespostaPedido> RespostaPedidoes { get; set; }
+        public virtual ICollection<RespostaPedido> RespostaPedidos { get; set; }
     }
 }
