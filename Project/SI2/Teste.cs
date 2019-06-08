@@ -15,10 +15,11 @@ namespace SI2
             //Console.WriteLine(franqueado.nome);
             //Console.ReadLine();
 
-            FranqueadoUtils.Insert(111222333, "EF Teste 1", "Microsoft Avenue");
+          //  FranqueadoUtils.Insert(111222333, "EF Teste 1", "Microsoft Avenue");
 
             using (var ctx = new SI2Entities())
             {
+                /*
                 var franq = ctx.Franqueados
                                 .Where(f => f.nome == "EF Teste 1")
                                 .FirstOrDefault<Franqueado>();
@@ -35,10 +36,11 @@ namespace SI2
 
                 FranqueadoUtils.Remove(franq.fid);
 
-                ProcessoVenda proc = new ProcessoVenda(10, "João Dias");
-                proc.FecharVenda(1, 1);
-
-
+                ProcessoVenda proc = new ProcessoVenda(10, "João Dias");*/
+               // proc.FecharVenda(1, 1);
+               double y=MediaVendas.mediavendas(1);
+                Console.WriteLine(y);
+                var x=Console.ReadLine();
             }
         }
     }
