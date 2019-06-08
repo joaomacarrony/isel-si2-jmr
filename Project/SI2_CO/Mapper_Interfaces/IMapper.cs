@@ -24,7 +24,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SI2_CO.Mapper
+namespace SI2_CO.Mapper_Interfaces
+
 {
     public interface IMapper<T, Tid>
     {

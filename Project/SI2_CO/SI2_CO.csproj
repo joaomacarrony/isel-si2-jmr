@@ -44,7 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Fornecedor.cs" />
     <Compile Include="Entities\Franqueado.cs" />
+    <Compile Include="Mapper_Interfaces\IMapper.cs" />
+    <Compile Include="Mapper\MapperFornecedor.cs" />
+    <Compile Include="Mapper_Interfaces\IMapperFornecedor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
