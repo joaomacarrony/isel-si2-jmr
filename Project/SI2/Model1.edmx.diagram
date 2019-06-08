@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a88d87d5a9e4311a91d909a8e89b6c1" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="SI2Model.Consumidor" Width="1.5" PointX="1.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.EntregasFranqueado" Width="1.5" PointX="2.875" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.Fornecedor" Width="1.5" PointX="2.875" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.Franqueado" Width="1.5" PointX="3.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.HistoricoVenda" Width="1.5" PointX="5.875" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.PedidosFranqueado" Width="1.5" PointX="5.875" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.PedidosProduto" Width="1.5" PointX="2.875" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.Produto" Width="1.5" PointX="0.625" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.RespostaPedido" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.Stock" Width="1.5" PointX="5.875" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SI2Model.Venda" Width="1.5" PointX="2.875" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="SI2Model.FK__EntregasF__codig__2D67AF2B" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__EntregasFra__fid__2C738AF2" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__HistoricoVe__fid__3AC1AA49" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__PedidosFran__fid__1F198FD4" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__Stock__fid__29971E47" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__Vendas__fid__3414ACBA" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__Historico__codig__3BB5CE82" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__PedidosFr__codig__200DB40D" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__PedidosPr__codig__22EA20B8" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__RespostaPe__ppid__25C68D63" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__Stock__codigo_pr__28A2FA0E" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FK__Vendas__codigo_p__36F11965" ManuallyRouted="false" />
+        <AssociationConnector Association="SI2Model.FornecedoresProdutos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

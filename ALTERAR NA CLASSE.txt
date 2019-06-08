@@ -1,0 +1,16 @@
+
+        public void VerificaOfertas(int pid)
+        {
+            float precoMedio, precoProposto, precoMinimoDescontado;
+            int rid, ppid, quantidadeOferecida;
+            bit resposta;
+
+            using(var ctx = new SI2Entities())
+            {
+                precoMedio = (from stock in ctx.Stock
+                               where stock.codigo_produto = pid
+                               select new {stock.preco}).Average();
+                
+                precoMinimoDescontado = precoMedio * 1.3;
+            }
+        }
