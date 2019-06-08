@@ -34,8 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,7 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Fornecedor.cs" />
     <Compile Include="Entities\Franqueado.cs" />
+    <Compile Include="Entities\Stock.cs" />
+    <Compile Include="Mapper\MapperFornecedor.cs" />
+    <Compile Include="Mapper\MapperFranqueado.cs" />
+    <Compile Include="Mapper\MapperStock.cs" />
+    <Compile Include="Mapper_Interfaces\IMapper.cs" />
+    <Compile Include="Mapper_Interfaces\IMapperFornecedor.cs" />
+    <Compile Include="Mapper_Interfaces\IMapperFranqueado.cs" />
+    <Compile Include="Mapper_Interfaces\IMapperStock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

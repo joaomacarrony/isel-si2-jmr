@@ -66,5 +66,26 @@ namespace SI2.Functions
                 ctx.SaveChanges();
             }
         }
+
+        public static float TotalVendasFranqueado(int fid, DateTime date)
+        {
+            float total = 0;
+            using (var ctx = new SI2Entities())
+            {
+                var query = from vendas in ctx.Vendas
+                            where vendas.fid == fid && vendas.data_venda.Value.Year == date.Year
+                            select new
+                            {
+                                preco = vendas.preco_venda,
+                                vendas.quantidade
+                            };
+
+                foreach(var ent in query)
+                {
+                    total += (float)(ent.preco * ent.quantidade);
+                }
+                return total;
+            }
+        }
     }
 }

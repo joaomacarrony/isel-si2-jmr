@@ -77,7 +77,7 @@ namespace SI2.Functions
                         {
                             resposta.resposta = true;
                             PedidosProduto pedido = ctx.PedidosProdutos.Find(ent.PPID);
-                            //ctx.PedidosProdutos.Remove(pedido);
+                            ctx.PedidosProdutos.Remove(pedido);
                             break;
                         }
                         else

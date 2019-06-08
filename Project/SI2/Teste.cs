@@ -37,8 +37,6 @@ namespace SI2
 
                 ProcessoVenda proc = new ProcessoVenda(10, "João Dias");
                 proc.FecharVenda(1, 1);
-
-
             }
         }
     }
