@@ -9,6 +9,7 @@ namespace SI2.Functions
     class ProcessoVenda
     {
         Consumidor consumidor;
+
         public ProcessoVenda(Consumidor consumidor){
             this.consumidor = consumidor;
             InsertConsumidor();

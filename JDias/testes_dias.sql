@@ -38,3 +38,8 @@ exec VerificaOfertas 1
 
 update RespostaPedido set resposta = NULL
 
+select * from Vendas
+select * from Produto
+select * from Consumidor
+exec CloseVenda 1,1
+

@@ -44,5 +44,27 @@ namespace SI2.Functions
                 ctx.SaveChanges();
             }
         }
+
+        public static void ForçarRemoçãoFranqueado(int fid)
+        {
+            using (var ctx = new SI2Entities())
+            {
+                EntregasFranqueado entregas = ctx.EntregasFranqueados.Find(fid);
+                Stock stock = ctx.Stocks.Find(fid);
+                Venda venda = ctx.Vendas.Find(fid);
+                HistoricoVenda historicoVenda = ctx.HistoricoVendas.Find(fid);
+                PedidosFranqueado pedidosFranqueados = ctx.PedidosFranqueados.Find(fid);
+                Franqueado franqueado = ctx.Franqueados.Find(fid);
+
+                ctx.EntregasFranqueados.Remove(entregas);
+                ctx.Stocks.Remove(stock);
+                ctx.Vendas.Remove(venda);
+                ctx.HistoricoVendas.Remove(historicoVenda);
+                ctx.PedidosFranqueados.Remove(pedidosFranqueados);
+                ctx.Franqueados.Remove(franqueado);
+
+                ctx.SaveChanges();
+            }
+        }
     }
 }
