@@ -36,16 +36,13 @@ namespace SI2
 
                 FranqueadoUtils.Remove(franq.fid);
 
-<<<<<<< HEAD
+
                 ProcessoVenda proc = new ProcessoVenda(10, "João Dias");
                 proc.FecharVenda(1, 1);
-=======
-                ProcessoVenda proc = new ProcessoVenda(10, "João Dias");*/
-               // proc.FecharVenda(1, 1);
+                */
                double y=MediaVendas.mediavendas(1);
                 Console.WriteLine(y);
                 var x=Console.ReadLine();
->>>>>>> 2bdf6e1158fb4c0fef2f39fe4102f1821a4dd99e
             }
         }
     }

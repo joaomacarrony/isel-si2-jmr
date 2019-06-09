@@ -17,13 +17,13 @@ namespace SI2_CO.Mapper
             cs = ConfigurationManager.ConnectionStrings["SI2"].ConnectionString;
         }
 
-        public void Create(Franqueado entity)
+        public void Create(Franqueado franq)
         {
             using (var ts = new TransactionScope(TransactionScopeOption.Required))
             {
                 SqlCommand cmd = new SqlCommand();
 
-                cmd.CommandText = "INSERT INTO FRANQUEADO VALUES(@nif,@nome,@morada)";
+                cmd.CommandText = "INSERT INTO FRANQUEADO output inserted.fid VALUES(@nif,@nome,@morada)";
 
                 SqlParameter nifParam = new SqlParameter();
                 SqlParameter nomeParam = new SqlParameter();
@@ -43,9 +43,9 @@ namespace SI2_CO.Mapper
                 moradaParam.SqlDbType = SqlDbType.VarChar;
                 moradaParam.Size = 100;
 
-                nifParam.Value = entity.nif;
-                nomeParam.Value = entity.nome;
-                moradaParam.Value = entity.morada;
+                nifParam.Value = franq.nif;
+                nomeParam.Value = franq.nome;
+                moradaParam.Value = franq.morada;
 
                 using (var cn = new SqlConnection(cs))
                 {
@@ -53,20 +53,20 @@ namespace SI2_CO.Mapper
                     cmd.Connection = cn;
                     cn.Open();
 
-                    cmd.ExecuteNonQuery();
+                    franq.fid = (int)cmd.ExecuteScalar();
 
                 }
                 ts.Complete();
             }
         }
 
-        public void Delete(Franqueado entity)
+        public void Delete(Franqueado franq)
         {
             using (var ts = new TransactionScope(TransactionScopeOption.Required))
             {
                 SqlCommand cmd = new SqlCommand();
 
-                cmd.CommandText = "delete from franqueado where fid = @fid)";
+                cmd.CommandText = "delete from franqueado where fid = @fid";
 
                 SqlParameter fidParam = new SqlParameter();
 
@@ -74,7 +74,7 @@ namespace SI2_CO.Mapper
 
                 fidParam.ParameterName = "@fid";
                 fidParam.SqlDbType = SqlDbType.Int;
-                fidParam.Value = entity.fid;
+                fidParam.Value = franq.fid;
 
                 using (var cn = new SqlConnection(cs))
                 {
@@ -94,7 +94,7 @@ namespace SI2_CO.Mapper
             throw new NotImplementedException();
         }
 
-        public void Update(Franqueado entity)
+        public void Update(Franqueado franq)
         {
             using (var ts = new TransactionScope(TransactionScopeOption.Required))
             {
@@ -123,10 +123,10 @@ namespace SI2_CO.Mapper
                 moradaParam.SqlDbType = SqlDbType.VarChar;
                 moradaParam.Size = 100;
 
-                fidParam.Value = entity.fid;
-                nifParam.Value = entity.nif;
-                nomeParam.Value = entity.nome;
-                moradaParam.Value = entity.morada;
+                fidParam.Value = franq.fid;
+                nifParam.Value = franq.nif;
+                nomeParam.Value = franq.nome;
+                moradaParam.Value = franq.morada;
 
                 using (var cn = new SqlConnection(cs))
                 {
